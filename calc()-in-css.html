@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calc() in CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link href="calc()-in-css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+     <header>
+         <h1>Calc() function in CSS</h1>
+     </header>
+     <main>
+         <h3>Calc() is for values</h3>
+         <p><b>calc()</b> funksiyasini yalniz <i>values</i>(deyerler) hissesinde istifade ede bilersiz. Meselen :</p>
+         <pre class="code"><span class="clr-yellow">.class</span>{
+  <span class="clr-blue">font-size</span>:<span class="clr-value"> <span class="clr-calc">calc</span>( 12px + 4px )</span>;
+  <span class="clr-blue">height</span>:<span class="clr-value"> <span class="clr-calc">calc</span>( 70% - 20px )</span>;
+  <span class="clr-blue">width</span>:<span class="clr-value"> <span class="clr-calc">calc</span>( 100% - 20% )</span>;
+  <span class="clr-blue">margin</span>:<span class="clr-value"> <span class="clr-calc">calc</span>( 40px + 20vw )</span>;
+}</pre>
+         <p><b>calc</b>-dan hemcinin <i>property</i>-nin bir hissesi kimide istifade olunur. Meselen :</p>
+         <pre class="code"><span class="clr-yellow">.class</span>{
+  <span class="clr-blue">padding</span>:<span class="clr-value"> 20px 15px <span class="clr-calc">calc</span>( 20px + 2vw ) 10px</span>;
+  <span class="clr-blue">border-radius</span>:<span class="clr-value"> 25px <span class="clr-calc">calc</span>( 12px * 2 ) 20px 25px</span>;
+}</pre>
+<pre class="code"><span class="clr-yellow">.gradient</span>{
+    <span class="clr-blue">background-image </span>:<span class="clr-value"> <span class="clr-gradient">Linear-gradient</span> (
+    to right,
+    black ,
+    darkblue calc(60% - 20px) 
+    green  ) </span>;
+}</pre>
+
+        <h3>The Math operators of calc()</h3>
+        <p><b>calc</b>-in riyaziyyat operatorlarinda + , - , * , / var. Amma onlardan nece istifade etmeyi de bilmek lazimdi</p>
+        <h4>Toplama (+) ve cixmada (-) her iki reqem uzunluq olmalidir. Meselen :</h4>
+        <pre class="code"><span class="clr-yellow">.class</span>{
+        <span class="comment">/*True*/</span>
+<span class="clr-blue">  margin</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 20px + 2vw ) </span>;
+
+        <span class="comment">/*False*/</span>
+<span class="clr-blue">  margin</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 12px + 8 ) </span>;
+}</pre>
+        <h4>Toplama ve cixmada boshluq vacibdir.</h4>
+
+        <pre class="code"><span class="clr-yellow">.class</span>{
+            <span class="comment">/*True*/</span>
+    <span class="clr-blue">  font-size</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 20px + 12px ) </span>;
+
+            <span class="comment">/*False*/</span>
+    <span class="clr-blue">  font-size</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 20px+12px ) </span>;
+
+            <span class="comment">/*True*/</span>
+    <span class="clr-blue">  font-size</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 30px - 5px ) </span>;
+
+            <span class="comment">/*False*/</span>
+    <span class="clr-blue">  font-size</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 30px-5px ) </span>;
+}</pre>
+
+        <h4>Bolmede (/) ikinci eded reqem olmalidir, uzunluq ve 0 olmaz. Meselen :</h4>
+        <pre class="code"><span class="clr-yellow">.class</span>{
+        <span class="comment">/*True*/</span>
+<span class="clr-blue">  margin</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 60px / 5 ) </span>;
+
+        <span class="comment">/*False*/</span>
+<span class="clr-blue">  margin</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 50px / 10px ) </span>;
+
+        <span class="comment">/*False*/</span>
+<span class="clr-blue">  margin</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 50px / 0 ) </span>;
+}</pre>
+        <h4>Vurmada (*) bir eded reqem olmalidir. Meselen :</h4>
+        <pre class="code"><span class="clr-yellow">.class</span>{
+        <span class="comment">/*True*/</span>
+<span class="clr-blue">  margin</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 20px * 3 ) </span>;
+    
+        <span class="comment">/*False*/</span>
+<span class="clr-blue">  margin</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 10px * 5px ) </span>;
+}</pre>
+        <h3>Nesting calc(calc());</h3>
+        <pre class="code"><span class="clr-yellow">.class</span>{
+    <span class="clr-blue">height</span>:<span class="clr-value"> <span class="clr-calc">calc</span>( 
+        calc( 100% / 10 )
+        +
+        calc( 2rem * 4 )
+        )</span>;
+}</pre>
+
+        <pre class="code"><span class="clr-yellow">.class</span>{
+<span class="clr-blue">  width</span>:<span class="clr-value"><span class="clr-calc">calc</span>( 20px * 3 - 35px / 7 ) </span>;
+}</pre>
+     </main>
+
+</body>
+</html>
