@@ -19,13 +19,13 @@ h3{
 }
 p{
     font-size: 20px;
-    margin: 10px 0px 0px 20px;
+    margin: calc(100px / 10) 0px 0px 20px;
 }
 .code{
     background-color: black;
     color: cornsilk;
-    padding: 10px;
-    font-size: 15px;
+    padding: calc(24px - 14px);
+    font-size: calc(3px * 5);
     margin-left: 100px;
     width: max-content;
     border-radius: 5px;
@@ -51,4 +51,29 @@ p{
 h4{
     font-size: 25px;
     margin: 10px 0px 0px 20px;
+}
+
+.example-1{
+    border: 1px solid black;
+    width: calc(200px + 300px);
+    height: auto;
+    font-size: calc(10px + 5px);
+    margin: 20px 0px 20px calc(40px + 60px);
+    padding: calc(10px + 4px);
+}
+b{
+    margin-left: 100px;
+    font-size: calc(12px + 10px);
+}
+.example-2{
+    width: calc(100px + 350px);
+    height: calc(110px + 30px);
+    margin: 10px 0px 20px 100px;
+    background-image: linear-gradient(to right,black,darkblue calc(60% - 20px),green);
+}
+.example-3{
+    background-color: brown;
+    margin: 10px 0px 10px 100px;
+    width: calc(200px * 3 - 1400px / 7);
+    height: calc(132px + 43px);
 }
